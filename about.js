@@ -4,3 +4,6 @@ function doSomething() {
 function doSomething2() {
   console.log("conflict icin deneme");
 }
+
+
+console.log('do somet');
