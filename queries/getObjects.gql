@@ -1,0 +1,13 @@
+{
+  getObjects(
+    bucket_slug: "nar-hali-production"
+    read_key: "Ooo8kifcewAcR4Mof9YEriYUKHQykUi5JjnbuTcfz419IvKgkW"
+    input: { limit: 20, query: { type: "hali" } }
+  ) {
+    objects {
+      title
+      content
+      metadata
+    }
+  }
+}
