@@ -6,3 +6,5 @@ function doSomething2() {
 }
 
 console.log('burada conflict olmamasi gerekiyor.');
+
+
