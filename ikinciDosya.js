@@ -1,3 +1,3 @@
 function doSomething() {
-  console.log("herkese selamlara");
+  console.log("selam arkadaslar");
 }
