@@ -1,11 +1,30 @@
 <template>
-  <Urun />
+  <Urun :urun="data" />
 </template>
 <script lang="ts">
-import { defineComponent, computed } from "@nuxtjs/composition-api";
+import {
+  defineComponent,
+  useFetch,
+  ref,
+  useRoute,
+} from "@nuxtjs/composition-api";
+import { getContent } from "~/queries/queryOperations";
 
 export default defineComponent({
-  setup() {},
+  setup() {
+    const data = ref();
+    const route = useRoute();
+    const pageRoute = route.value.path.substring(1);
+    const { fetch } = useFetch(async () => {
+      const result = await getContent("hali", pageRoute);
+      data.value = result.items[0].fields;
+    });
+
+    fetch();
+    return {
+      data,
+    };
+  },
   head() {
     return {
       title: "title",

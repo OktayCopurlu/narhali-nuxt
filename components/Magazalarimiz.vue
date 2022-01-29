@@ -1,11 +1,11 @@
 <template>
   <main>
-    <h1>NARLIDERE HALI VE PERDE MAGAZAMIZ</h1>
+    <h1>{{ magaza.baslik }}</h1>
     <address>
-      <p>Narlı Mah., Mithatpaşa Cd. 230/A, 35320 Narlıdere/İzmir, Türkiye</p>
-      <p>
+      <p>{{ magaza.adres }}</p>
+      <!-- <p>
         <strong><a href="tel:+905442385734">+90 544 238 57 34</a></strong>
-      </p>
+      </p> -->
       <p>
         <strong
           ><a
@@ -15,55 +15,23 @@
           ></strong
         >
       </p>
-      <h3>Calisma Saatlerimiz</h3>
-
-      <table>
-        <tr>
-          <td>Pazartesi</td>
-          <td>09:00–20:00</td>
-        </tr>
-        <tr>
-          <td>Sali</td>
-          <td>09:00–20:00</td>
-        </tr>
-        <tr>
-          <td>Carsamba</td>
-          <td>09:00–20:00</td>
-        </tr>
-        <tr>
-          <td>Persembe</td>
-          <td>09:00–20:00</td>
-        </tr>
-        <tr>
-          <td>Cuma</td>
-          <td>09:00–20:00</td>
-        </tr>
-        <tr>
-          <td>Cumartesi</td>
-          <td>09:00–20:00</td>
-        </tr>
-      </table>
     </address>
     <section>
-      <img :src="resim1" alt="magaza resimleri" />
-      <img :src="resim1 + 1" alt="magaza resimleri" />
-      <img :src="resim1 + 2" alt="magaza resimleri" />
-      <img :src="resim1 + 3" alt="magaza resimleri" />
-      <img :src="resim1 + 4" alt="magaza resimleri" />
+      <img
+        v-for="resim in magaza.resimler"
+        :key="resim.fields.file.url"
+        :src="resim.fields.file.url"
+        alt="magaza resimleri"
+      />
     </section>
   </main>
 </template>
 <script lang="ts">
 import { defineComponent, ref, computed } from "@nuxtjs/composition-api";
 export default defineComponent({
+  props: ["magaza"],
   setup() {
-    const resim1 = computed(() => {
-      return `https://picsum.photos/1920/1080?2`;
-    });
-
-    return {
-      resim1,
-    };
+    return {};
   },
 });
 </script>

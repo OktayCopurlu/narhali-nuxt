@@ -1,19 +1,17 @@
 <template>
   <main>
     <section class="product-information">
-      <img :src="resim1 + 10" alt="hali resimi" />
+      <img :src="urun.resimler[0].fields.file.url" :alt="urun.baslik" />
       <div>
-        <h1>Urun adi ve modeli</h1>
+        <h1>{{ urun.baslik }}</h1>
         <p>
-          Aciklama Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui,
-          nobis dolore. Ad repellendus itaque provident sunt dolores aut ea
-          architecto est optio nisi neque in, repellat possimus quibusdam rem
-          amet.
+          {{ urun.aciklama }}
         </p>
         <table>
           <tr>
             <th>Urun Ebatlari</th>
           </tr>
+          <tbody>
           <tr>
             <td>80 x 150</td>
           </tr>
@@ -35,30 +33,27 @@
           <tr>
             <td>200 x 290</td>
           </tr>
+          </tbody>
         </table>
       </div>
     </section>
 
     <section class="images-section">
-      <img :src="resim1" alt="magaza resimleri" />
-      <img :src="resim1 + 1" alt="magaza resimleri" />
-      <img :src="resim1 + 2" alt="magaza resimleri" />
-      <img :src="resim1 + 3" alt="magaza resimleri" />
-      <img :src="resim1 + 4" alt="magaza resimleri" />
+      <img
+        v-for="resim in urun.resimler"
+        :key="resim.fields.file.url"
+        :src="resim.fields.file.url"
+        alt="magaza resimleri"
+      />
     </section>
   </main>
 </template>
 <script lang="ts">
-import { defineComponent, ref, computed } from "@nuxtjs/composition-api";
+import { defineComponent } from "@nuxtjs/composition-api";
 export default defineComponent({
+  props: ["urun"],
   setup() {
-    const resim1 = computed(() => {
-      return `https://picsum.photos/1920/1080?2`;
-    });
-
-    return {
-      resim1,
-    };
+    return {};
   },
 });
 </script>

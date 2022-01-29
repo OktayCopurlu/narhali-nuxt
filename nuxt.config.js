@@ -1,3 +1,6 @@
+import dotenv from "dotenv";
+dotenv.config();
+
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: "static",
@@ -21,7 +24,7 @@ export default {
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: ["~/plugins/contentful.js"],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -33,7 +36,11 @@ export default {
     "@nuxtjs/composition-api/module",
     "@nuxtjs/vuetify",
   ],
-
+  env: {
+    CONTENTFUL_SPACE: process.env.CONTENTFUL_SPACE,
+    CONTENTFUL_ACCESSTOKEN: process.env.CONTENTFUL_ACCESSTOKEN,
+    CONTENTFUL_ENVIRONMENT: process.env.CONTENTFUL_ENVIRONMENT,
+  },
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: ["@nuxtjs/apollo", "lodash"],
 
@@ -44,9 +51,15 @@ export default {
   apollo: {
     clientConfigs: {
       default: {
-        httpEndpoint: "https://graphql.cosmicjs.com/v3",
+        httpEndpoint:
+          "https://graphql.contentful.com/content/v1/spaces/smvwsw82via7/environments/master",
+
+        httpLinkOptions: {
+          headers: {
+            authorization: "Bearer Qypj9WSPb7heGA0dqmU9W9a_085DQ46LlUbnwmQUrds",
+          },
+        },
       },
     },
   },
-
 };

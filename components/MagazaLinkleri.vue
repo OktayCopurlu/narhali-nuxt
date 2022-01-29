@@ -2,19 +2,14 @@
   <div>
     <h2>MAGAZALARIMIZ</h2>
     <ul>
-      <li>
-        <nuxt-link :to="'/magazalarimiz/hali'">
-          <img :src="resim1 + 1" alt="hali resimleri" />
+      <li v-for="magaza in magazalar" :key="magaza.slug">
+        <nuxt-link :to="'/magazalarimiz/' + magaza.slug">
+          <img
+            :src="magaza.resimlerCollection.items[0].url"
+            alt="hali resimleri"
+          />
           <section>
-            <h3>Hali ve Perde Magazamiz</h3>
-          </section>
-        </nuxt-link>
-      </li>
-      <li>
-        <nuxt-link :to="'/magazalarimiz/yatak'">
-          <img :src="resim1 + 2" alt="hali resimleri" />
-          <section>
-            <h3>Yatak Magazamiz</h3>
+            <h3>{{ magaza.baslik }}</h3>
           </section>
         </nuxt-link>
       </li>
@@ -25,14 +20,9 @@
 import { defineComponent, computed } from "@nuxtjs/composition-api";
 
 export default defineComponent({
+  props: ["magazalar"],
   setup() {
-    const resim1 = computed(() => {
-      return `https://picsum.photos/1920/1080?2`;
-    });
-
-    return {
-      resim1,
-    };
+    return {};
   },
 });
 </script>

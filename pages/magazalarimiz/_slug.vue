@@ -1,11 +1,31 @@
 <template>
-  <Magazalarimiz />
+  <Magazalarimiz :magaza="data" />
 </template>
 <script lang="ts">
-import { defineComponent, computed } from "@nuxtjs/composition-api";
-
+import {
+  computed,
+  defineComponent,
+  ref,
+  useFetch,
+  useRoute,
+} from "@nuxtjs/composition-api";
+import { getContent } from "~/queries/queryOperations";
 export default defineComponent({
-  setup() {},
+  setup() {
+    const data = ref();
+    const route = useRoute();
+    const pageRoute = route.value.path.substring(15);
+
+    const { fetch } = useFetch(async () => {
+      const result = await getContent("magaza", pageRoute);
+      data.value = result;
+    });
+
+    fetch();
+    return {
+      data,
+    };
+  },
   head() {
     return {
       title: "title",

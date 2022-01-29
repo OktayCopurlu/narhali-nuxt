@@ -1,8 +1,9 @@
 <template>
-  <nav>
+  <nav :style="`background-image: url(${resim})`">
     <label class="large-display-none" for="bar"
       ><i class="fas fa-bars"></i></label
     ><input type="checkbox" name="bar" id="bar" />
+
     <ul>
       <li v-for="element in navList" :key="element.link">
         <nuxt-link :to="element.link"> {{ element.text }}</nuxt-link>
@@ -14,6 +15,7 @@
 <script lang="ts">
 import { defineComponent, reactive, toRefs } from "@nuxtjs/composition-api";
 export default defineComponent({
+  props: ["resim"],
   setup() {
     const state = reactive({
       navList: [
@@ -25,7 +27,7 @@ export default defineComponent({
           link: "/hakkinda",
           text: "Hakkimizda",
         },
-             {
+        {
           link: "/halilar",
           text: "Halilar",
         },
@@ -58,11 +60,16 @@ export default defineComponent({
 <style lang="scss" scoped>
 @import "~/static/main";
 nav {
-  background-image: url("https://picsum.photos/1920/1080?random");
+  // background-image: url("https://picsum.photos/1920/1080?random");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   height: 20rem;
+  // display: flex;
+  // align-items: flex-end;
+  // div {
+  //   width: 100%;
+  // }
   #bar {
     display: none;
   }
@@ -72,6 +79,13 @@ nav {
     cursor: pointer;
     padding: 1rem;
   }
+  // .background {
+  //   background-color: gray;
+  //   width: 100%;
+  //   opacity: 0.5;
+  //   height: 3rem;
+  //   position: absolute;
+  // }
   ul {
     display: flex;
     justify-content: space-around;
@@ -81,16 +95,17 @@ nav {
     li {
       margin-bottom: 1rem;
       list-style: none;
+
       a {
         font-size: 1.8vw;
         color: white;
         text-decoration: none;
+
         &:hover {
           color: darken($color: white, $amount: 10);
           text-decoration: underline;
           text-decoration-color: darken($color: white, $amount: 20);
         }
-       
       }
     }
   }

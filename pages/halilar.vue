@@ -1,43 +1,32 @@
 <template>
   <div>
-    <div v-for="hali in data.data.getObjects.objects" :key="hali.title">
-      <h1>{{ hali.title }}</h1>
-      <p v-html="hali.content"></p>
-      <img :src="hali.metadata.images.url" alt="">
-    </div>
+    <ul>
+      <Halilar v-for="hali in data" :key="hali.slug" :hali="hali" />
+    </ul>
   </div>
 </template>
 <script lang="ts">
 import {
-  useAsync,
   defineComponent,
   useFetch,
-  useContext,
-  computed,
   ref,
+  useContext,
 } from "@nuxtjs/composition-api";
-import getObjects from "~/queries/getObjects.gql";
+import {GET_ALL_CARPET} from '~/queries/query.js'
 export default defineComponent({
   setup() {
     const data = ref();
-    const context = useContext();
-    const client = context.app?.apolloProvider.defaultClient;
 
-    const { fetch, fetchState } = useFetch(async () => {
-      data.value = await client.query({
-        query: getObjects,
-        fetchPolicy: "network-only",
+    const context = useContext();
+
+    const { fetch } = useFetch(async () => {
+      const grapClient = context.app?.apolloProvider.defaultClient;
+      const result = await grapClient.query({
+        query: GET_ALL_CARPET,
       });
+      data.value = result.data.haliCollection.items;
     });
     fetch();
-    console.log(fetchState);
-
-    // const  data  = useAsync(() => {
-    //   client.query({
-    //     query: getObjects,
-    //     fetchPolicy: "network-only",
-    //   });
-    // });
     return {
       data,
     };
@@ -56,4 +45,12 @@ export default defineComponent({
   },
 });
 </script>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  width: 90vw;
+  align-items: center;
+  justify-content: center;
+}
+</style>
