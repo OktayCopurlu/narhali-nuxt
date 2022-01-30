@@ -4,5 +4,6 @@ export const state: any = (): { page: string } => {
 export const mutations = {
   SET_PAGE(state: { page: any }, value: any) {
     state.page = value;
+    console.log(state.page);
   },
 };

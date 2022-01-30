@@ -8,7 +8,6 @@ export async function useContent(
     content_type: content,
     "fields.slug": route,
   });
-
   return response.items[0].fields;
 }
 

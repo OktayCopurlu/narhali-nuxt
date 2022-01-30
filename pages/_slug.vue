@@ -3,12 +3,11 @@
 </template>
 <script lang="ts">
 import { useContent } from "~/queries/queryOperations";
-import { state } from "~/store/index";
 
 export default {
-  async asyncData({ params }: { params: any }) {
+  async asyncData({ params, store }: { params: any; store: any }) {
     const pageRoute = params.slug as string;
-    const result = await useContent(state.page, pageRoute);
+    const result = await useContent(store.state.page, pageRoute);
     const data: {
       baslik: string;
       adres: string;
