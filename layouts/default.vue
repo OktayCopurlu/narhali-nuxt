@@ -2,6 +2,7 @@
   <div class="main">
     <Navigation :resim="imageURL" />
     <Nuxt />
+    <Footer/>
   </div>
 </template>
 <script lang="ts">
