@@ -1,9 +1,16 @@
 export const state: any = (): { page: string } => {
-  return { page: " " };
+  return { page: "magazalarimiz" };
 };
+
+
 export const mutations = {
   SET_PAGE(state: { page: any }, value: any) {
     state.page = value;
-    console.log(state.page);
   },
 };
+
+// import { reactive } from "@nuxtjs/composition-api";
+
+// export const state: any = reactive({
+//   page: "magazalarimiz",
+// });

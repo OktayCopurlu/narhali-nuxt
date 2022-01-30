@@ -1,16 +1,15 @@
 <template>
   <li>
-    <nuxt-link :to="`/${urun.slug}`">
+    <nuxt-link :to="`${content}/${urun.slug}`">
       <img :src="urun.resimlerCollection.items[0].url" alt="urun resmi" />
       <h3>{{ urun.baslik }}</h3>
     </nuxt-link>
   </li>
 </template>
-    <script lang="ts">
+<script lang="ts">
 import { defineComponent } from "@nuxtjs/composition-api";
 export default defineComponent({
-  props: ["urun"],
-
+  props: ["urun", "content"],
 });
 </script>
 <style lang="scss" scoped>

@@ -43,6 +43,9 @@ export const GET_ALL_MAGAZALAR = gql`
             url
           }
         }
+        sys {
+          id
+        }
       }
     }
   }
@@ -57,6 +60,9 @@ export const GET_ALL_PERDE = gql`
           items {
             url
           }
+        }
+        sys {
+          id
         }
       }
     }
@@ -73,6 +79,9 @@ export const GET_ALL_KAYMAZ_HALI = gql`
             url
           }
         }
+        sys {
+          id
+        }
       }
     }
   }
@@ -87,6 +96,9 @@ export const GET_ALL_EV_DEKORASYON = gql`
           items {
             url
           }
+        }
+        sys {
+          id
         }
       }
     }
@@ -103,6 +115,9 @@ export const GET_ALL_YATAK = gql`
             url
           }
         }
+        sys {
+          id
+        }
       }
     }
   }
@@ -118,6 +133,9 @@ export const GET_HAKKIMIZDA = gql`
           items {
             url
           }
+        }
+        sys {
+          id
         }
       }
     }

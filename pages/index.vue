@@ -2,7 +2,12 @@
   <div>
     <YeniCikanlar />
     <ul class="urun-link-container">
-      <UrunLink v-for="urun in data" :key="urun.slug" :urun="urun" />
+      <UrunLink
+        v-for="urun in data"
+        :key="urun.slug"
+        :urun="urun"
+        content="magazalarimiz"
+      />
     </ul>
   </div>
 </template>
@@ -10,8 +15,7 @@
 import { GET_ALL_MAGAZALAR } from "~/queries/query";
 import { useContents } from "~/queries/queryOperations";
 export default {
- async asyncData({ app, route, store }: { app: any; route: any; store: any }) {
-    store.commit("SET_PAGE", "magazalarimiz");
+  async asyncData({ app }: { app: any; route: any }) {
     const result = await useContents(app, GET_ALL_MAGAZALAR);
     const data: [
       {

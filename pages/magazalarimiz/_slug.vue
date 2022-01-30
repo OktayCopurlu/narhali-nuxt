@@ -1,13 +1,24 @@
 <template>
-  <Magazalarimiz :magaza="result" />
+  <Urun :urun="data" content="magazalarimiz" />
 </template>
 <script lang="ts">
 import { useContent } from "~/queries/queryOperations";
 export default {
-  async asyncData({ params }: { params: any }) {
+  async asyncData({ params, route }: { params: any; route: any }) {
     const pageRoute = params.slug as string;
     const result = await useContent("magazalarimiz", pageRoute);
-    return { result };
+    const data: {
+      baslik: string;
+      adres: string;
+      resimler: [any];
+      slug: string;
+    } = result as {
+      baslik: string;
+      adres: string;
+      resimler: [any];
+      slug: string;
+    };
+    return { data };
   },
   head: {
     title: "title",

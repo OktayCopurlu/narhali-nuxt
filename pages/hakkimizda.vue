@@ -9,8 +9,7 @@ import { GET_HAKKIMIZDA } from "~/queries/query.js";
 import { useContents } from "~/queries/queryOperations";
 
 export default {
-  async asyncData({ app, route, store }: { app: any; route: any; store: any }) {
-    store.commit("SET_PAGE", route.name);
+  async asyncData({ app }: { app: any }) {
     const result = await useContents(app, GET_HAKKIMIZDA);
     const data: [
       {

@@ -1,9 +1,6 @@
 import { client } from "~/plugins/contentful";
 
-export async function useContent(
-  content: string | "magazalarimiz" = "magazalarimiz",
-  route: string
-) {
+export async function useContent(content: string, route: string) {
   const response = await client.getEntries({
     content_type: content,
     "fields.slug": route,
