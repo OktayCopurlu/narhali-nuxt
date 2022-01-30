@@ -10,7 +10,7 @@
   </v-app>
 </template>
 
-<script >
+  <script lang="ts">
 import {  defineComponent, toRefs } from "@nuxtjs/composition-api";
 export default defineComponent({
   props: ["error"],

@@ -4,13 +4,10 @@
     <p>{{ hakkimizda.aciklama }}</p>
   </div>
 </template>
-<script lang="ts">
+    <script lang="ts">
 import { defineComponent } from "@nuxtjs/composition-api";
 export default defineComponent({
   props: ["hakkimizda"],
-  setup() {
-    return {};
-  },
 });
 </script>
 <style lang="scss" scoped>

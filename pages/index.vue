@@ -6,7 +6,7 @@
     </ul>
   </div>
 </template>
-<script lang="ts">
+    <script lang="ts">
 import { GET_ALL_MAGAZALAR } from "~/queries/query";
 import { useContents } from "~/queries/queryOperations";
 import { state } from "~/store/index";

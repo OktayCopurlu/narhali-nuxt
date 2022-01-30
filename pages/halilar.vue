@@ -6,7 +6,7 @@
   </div>
 </template>
 
-<script lang="ts">
+    <script lang="ts">
 import { GET_ALL_CARPETS } from "~/queries/query.js";
 import { useContents } from "~/queries/queryOperations";
 import { state } from "~/store/index";

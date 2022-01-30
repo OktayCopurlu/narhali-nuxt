@@ -4,7 +4,7 @@
   </div>
 </template>
 
-<script lang="ts">
+    <script lang="ts">
 import { GET_HAKKIMIZDA } from "~/queries/query.js";
 import { useContents } from "~/queries/queryOperations";
 import { state } from "~/store/index";

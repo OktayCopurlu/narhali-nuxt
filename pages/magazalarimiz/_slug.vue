@@ -1,7 +1,7 @@
 <template>
   <Magazalarimiz :magaza="result" />
 </template>
-<script lang="ts">
+    <script lang="ts">
 import { useContent } from "~/queries/queryOperations";
 export default {
   async asyncData({ params }) {

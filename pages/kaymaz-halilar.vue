@@ -6,7 +6,7 @@
   </div>
 </template>
 
-<script lang="ts">
+    <script lang="ts">
 import { GET_ALL_KAYMAZ_HALI } from "~/queries/query.js";
 import { useContents } from "~/queries/queryOperations";
 import { state } from "~/store/index";

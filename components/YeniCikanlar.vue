@@ -24,7 +24,7 @@
     </section>
   </main>
 </template>
-<script lang="ts">
+    <script lang="ts">
 import { defineComponent, ref, computed } from "@nuxtjs/composition-api";
 export default defineComponent({
   setup() {

@@ -4,7 +4,7 @@
     <Nuxt />
   </div>
 </template>
-<script>
+  <script lang="ts">
 import {
   defineComponent,
   useFetch,

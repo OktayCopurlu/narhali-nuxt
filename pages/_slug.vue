@@ -1,7 +1,7 @@
 <template>
   <Urun :urun="result" />
 </template>
-<script lang="ts">
+  <script lang="ts">
 import { useContent } from "~/queries/queryOperations";
 import { state } from "~/store/index";
 

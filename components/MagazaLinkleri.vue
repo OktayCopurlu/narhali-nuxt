@@ -20,14 +20,10 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent, computed } from "@nuxtjs/composition-api";
+import { defineComponent } from "@nuxtjs/composition-api";
 
 export default defineComponent({
   props: ["magazalar"],
-  setup(props) {
-    console.log(props);
-    return {};
-  },
 });
 </script>
 

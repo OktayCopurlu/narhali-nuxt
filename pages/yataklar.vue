@@ -2,7 +2,7 @@
   <div>
     <ul class="urun-link-container">
       <UrunLink
-        v-for="urun in data"
+        v-for="urun in urunler"
         :key="urun.slug"
         :urun="urun"
         :page="'yataklar'"
@@ -17,10 +17,12 @@ import { useContents } from "~/queries/queryOperations";
 import { state } from "~/store/index";
 export default {
   async asyncData({ app, route }) {
-    state.page = route.name;
+    state.page = route.name as string;
     const result = await useContents(app, GET_ALL_YATAK);
-    const data = result.yataklarCollection.items;
-    return { data };
+    const urunler: [
+      { baslik: string; resimlerCollection: { items: [string] }; slug: string }
+    ] = result.yataklarCollection.items;
+    return { urunler };
   },
 
   head: {
