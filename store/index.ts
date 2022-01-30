@@ -1,3 +1,3 @@
-export const state: { page: string } = {
-  page: "",
+export const state: any = (): { page: string } => {
+  return { page: " " };
 };
