@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ul>
+    <ul class="urun-link-container">
       <UrunLink v-for="urun in data" :key="urun.slug" :urun="urun" />
     </ul>
   </div>
@@ -31,11 +31,6 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-ul {
-  display: flex;
-  flex-wrap: wrap;
-  width: 90vw;
-  align-items: center;
-  justify-content: center;
-}
+@import "~/static/main";
+
 </style>

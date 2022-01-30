@@ -2,9 +2,7 @@
   <li>
     <nuxt-link :to="`/${urun.slug}`">
       <img :src="urun.resimlerCollection.items[0].url" alt="urun resmi" />
-      <section>
-        <h3>{{ urun.baslik }}</h3>
-      </section>
+      <h3>{{ urun.baslik }}</h3>
     </nuxt-link>
   </li>
 </template>
@@ -21,26 +19,24 @@ export default defineComponent({
 @import "~/static/main";
 
 li {
-  border: 1px solid gray;
   width: 25rem;
   list-style: none;
   margin: 1rem;
   a {
     text-decoration: none;
-    section {
-      margin: 1rem;
-      h3 {
-        color: black;
-      }
-      p {
-        margin-top: 1rem;
-        color: red;
-      }
+
+    h3 {
+      color: black;
+    }
+    p {
+      margin-top: 1rem;
+      color: red;
     }
   }
 }
 
 img {
   width: 25rem;
+  height: 31.25rem;
 }
 </style>

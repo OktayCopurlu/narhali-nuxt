@@ -1,7 +1,9 @@
 <template>
   <div>
     <YeniCikanlar />
-  <UrunLink v-for="urun in data" :key="urun.slug" :urun="urun" />
+    <ul class="urun-link-container">
+      <UrunLink v-for="urun in data" :key="urun.slug" :urun="urun" />
+    </ul>
   </div>
 </template>
 <script lang="ts">
@@ -10,7 +12,7 @@ import { useContents } from "~/queries/queryOperations";
 import { state } from "~/store/index";
 export default {
   async asyncData({ app, route }) {
-    state.page = route.name;
+    state.page = "magazalarimiz";
     const result = await useContents(app, GET_ALL_MAGAZALAR);
     const data = result.magazalarimizCollection.items;
     return { data };
@@ -27,4 +29,6 @@ export default {
   },
 };
 </script>
-<style lang="sass"></style>
+<style lang="scss" scoped>
+@import "~static/main";
+</style>

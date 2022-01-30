@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ul>
+    <ul class="urun-link-container">
       <UrunLink
         v-for="urun in data"
         :key="urun.slug"
@@ -20,7 +20,7 @@ export default {
     state.page = route.name;
     const result = await useContents(app, GET_ALL_YATAK);
     const data = result.yataklarCollection.items;
-    return { data};
+    return { data };
   },
 
   head: {
@@ -36,11 +36,5 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-ul {
-  display: flex;
-  flex-wrap: wrap;
-  width: 90vw;
-  align-items: center;
-  justify-content: center;
-}
+@import "~/static/main";
 </style>

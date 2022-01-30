@@ -18,3 +18,23 @@ nav > ul * {
     display: inline-block;
   }
 }
+.urun-link-container {
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  width: 90vw;
+  align-items: center;
+  justify-content: center;
+
+  @media #{$media-mobile} {
+    width: 95vw;
+    li {
+      width: 100%;
+      margin: 1rem 0;
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+}

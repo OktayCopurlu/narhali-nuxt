@@ -1,16 +1,16 @@
 <template>
-  <div>
-    <ul>
-      <Hakkimizda :hakkimizda="data" />
-    </ul>
+  <div class="urun-link-container">
+    <Hakkimizda :hakkimizda="data" />
   </div>
 </template>
 
 <script lang="ts">
 import { GET_HAKKIMIZDA } from "~/queries/query.js";
 import { useContents } from "~/queries/queryOperations";
+import { state } from "~/store/index";
 export default {
-  async asyncData({ app }) {
+  async asyncData({ app, route }) {
+    state.page = route.name;
     const result = await useContents(app, GET_HAKKIMIZDA);
     const data = result.hakkimizdaCollection.items[0];
     return { data };
@@ -29,11 +29,5 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-ul {
-  display: flex;
-  flex-wrap: wrap;
-  width: 90vw;
-  align-items: center;
-  justify-content: center;
-}
+@import "~/static/main";
 </style>

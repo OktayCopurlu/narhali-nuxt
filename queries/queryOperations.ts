@@ -1,7 +1,6 @@
 import { client } from "~/plugins/contentful";
-import { useContext } from "@nuxtjs/composition-api";
 
-export async function useContent(content, route) {
+export async function useContent(content = "magazalarimiz", route) {
   const response = await client.getEntries({
     content_type: content,
     "fields.slug": route,
@@ -15,5 +14,5 @@ export async function useContents(app, pQuery) {
   const result = await grapClient.query({
     query: pQuery,
   });
-  return result.data
+  return result.data;
 }

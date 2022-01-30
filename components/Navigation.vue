@@ -64,12 +64,8 @@ nav {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 20rem;
-  // display: flex;
-  // align-items: flex-end;
-  // div {
-  //   width: 100%;
-  // }
+  height: auto;
+  min-height: 23rem;
   #bar {
     display: none;
   }
@@ -90,7 +86,7 @@ nav {
     display: flex;
     justify-content: space-around;
     align-items: flex-end;
-    height: 20rem;
+    height: 23rem;
 
     li {
       margin-bottom: 1rem;

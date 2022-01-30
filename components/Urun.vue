@@ -12,27 +12,27 @@
             <th>Urun Ebatlari</th>
           </tr>
           <tbody>
-          <tr>
-            <td>80 x 150</td>
-          </tr>
-          <tr>
-            <td>80 x 300</td>
-          </tr>
-          <tr>
-            <td>100 x 200</td>
-          </tr>
-          <tr>
-            <td>100 x 300</td>
-          </tr>
-          <tr>
-            <td>120 x 180</td>
-          </tr>
-          <tr>
-            <td>160 x 180</td>
-          </tr>
-          <tr>
-            <td>200 x 290</td>
-          </tr>
+            <tr>
+              <td>80 x 150</td>
+            </tr>
+            <tr>
+              <td>80 x 300</td>
+            </tr>
+            <tr>
+              <td>100 x 200</td>
+            </tr>
+            <tr>
+              <td>100 x 300</td>
+            </tr>
+            <tr>
+              <td>120 x 180</td>
+            </tr>
+            <tr>
+              <td>160 x 180</td>
+            </tr>
+            <tr>
+              <td>200 x 290</td>
+            </tr>
           </tbody>
         </table>
       </div>
@@ -81,7 +81,7 @@ export default defineComponent({
   justify-content: center;
   img {
     margin: 1rem;
-    width: 30rem;
+    width: 25rem;
   }
 }
 </style>
