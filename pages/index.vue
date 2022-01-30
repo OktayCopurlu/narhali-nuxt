@@ -9,10 +9,9 @@
 <script lang="ts">
 import { GET_ALL_MAGAZALAR } from "~/queries/query";
 import { useContents } from "~/queries/queryOperations";
-import { state } from "~/store/index";
 export default {
-  async asyncData({ app }: { app: any }) {
-    state.page = "magazalarimiz";
+ async asyncData({ app, route, store }: { app: any; route: any; store: any }) {
+    store.commit("SET_PAGE", "magazalarimiz");
     const result = await useContents(app, GET_ALL_MAGAZALAR);
     const data: [
       {

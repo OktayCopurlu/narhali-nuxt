@@ -9,10 +9,10 @@
 <script lang="ts">
 import { GET_ALL_EV_DEKORASYON } from "~/queries/query.js";
 import { useContents } from "~/queries/queryOperations";
-import { state } from "~/store/index";
+
 export default {
-  async asyncData({ app, route }: { app: any; route: any }) {
-    state.page = route.name as string;
+ async asyncData({ app, route, store }: { app: any; route: any; store: any }) {
+    store.commit("SET_PAGE", route.name);
     const result = await useContents(app, GET_ALL_EV_DEKORASYON);
     const data: [
       {
