@@ -24,7 +24,7 @@ export default defineComponent({
           text: "Ana Sayfa",
         },
         {
-          link: "/hakkinda",
+          link: "/hakkimizda",
           text: "Hakkimizda",
         },
         {

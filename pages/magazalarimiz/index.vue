@@ -1,49 +1,41 @@
 <template>
-  <MagazaLinkleri :magazalar="data" />
+  <div>
+    <ul>
+      <UrunLink v-for="urun in data" :key="urun.slug" :urun="urun" />
+    </ul>
+  </div>
 </template>
+
 <script lang="ts">
-import {
-  defineComponent,
-  computed,
-  ref,
-  useContext,
-  useFetch,
-} from "@nuxtjs/composition-api";
-import { GET_ALL_MAGAZA } from "~/queries/query";
-
-export default defineComponent({
-  setup() {
-    const data = ref();
-
-    const context = useContext();
-
-    const { fetch } = useFetch(async () => {
-      const grapClient = context.app?.apolloProvider.defaultClient;
-      const result = await grapClient.query({
-        query: GET_ALL_MAGAZA,
-      });
-      data.value = result.data.magazaCollection.items;
-    });
-    fetch();
-    return {
-      data,
-    };
+import { GET_ALL_MAGAZALAR } from "~/queries/query.js";
+import { useContents } from "~/queries/queryOperations";
+import { state } from "~/store/index";
+export default {
+  async asyncData({ app, route }) {
+    state.page = route.name;
+    const result = await useContents(app, GET_ALL_MAGAZALAR);
+    const data = result.magazalarimizCollection.items;
+    return { data };
   },
-  head() {
-    return {
-      title: "title",
-      meta: [
-        {
-          hid: "description",
-          name: "description",
-          content: "some page description",
-        },
-      ],
-    };
+
+  head: {
+    title: "title",
+    meta: [
+      {
+        hid: "description",
+        name: "description",
+        content: "some page description",
+      },
+    ],
   },
-});
+};
 </script>
-
 <style lang="scss" scoped>
-@import "~/static/main";
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  width: 90vw;
+  align-items: center;
+  justify-content: center;
+}
 </style>

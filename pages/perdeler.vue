@@ -1,28 +1,41 @@
 <template>
-  <Perdeler />
+  <div>
+    <ul>
+      <UrunLink v-for="urun in data" :key="urun.slug" :urun="urun" />
+    </ul>
+  </div>
 </template>
+
 <script lang="ts">
-import { reactive, defineComponent, toRefs } from "@nuxtjs/composition-api";
-export default defineComponent({
-  setup() {
-    const state = reactive({});
-    return {
-      ...toRefs(state),
-    };
+import { GET_ALL_PERDE } from "~/queries/query.js";
+import { useContents } from "~/queries/queryOperations";
+import { state } from "~/store/index";
+export default {
+  async asyncData({ app, route }) {
+    state.page = route.name;
+    const result = await useContents(app, GET_ALL_PERDE);
+    const data = result.perdelerCollection.items;
+    return { data };
   },
-  head() {
-    return {
-      title: "title",
-      meta: [
-        {
-          hid: "description",
-          name: "description",
-          content: "some page description",
-        },
-      ],
-    };
+
+  head: {
+    title: "title",
+    meta: [
+      {
+        hid: "description",
+        name: "description",
+        content: "some page description",
+      },
+    ],
   },
-});
+};
 </script>
 <style lang="scss" scoped>
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  width: 90vw;
+  align-items: center;
+  justify-content: center;
+}
 </style>

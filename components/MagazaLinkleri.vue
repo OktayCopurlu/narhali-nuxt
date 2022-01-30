@@ -2,7 +2,10 @@
   <div>
     <h2>MAGAZALARIMIZ</h2>
     <ul>
-      <li v-for="magaza in magazalar" :key="magaza.slug">
+      <li
+        v-for="magaza in magazalar.magazalarimizCollection.items"
+        :key="magaza.slug"
+      >
         <nuxt-link :to="'/magazalarimiz/' + magaza.slug">
           <img
             :src="magaza.resimlerCollection.items[0].url"
@@ -21,7 +24,8 @@ import { defineComponent, computed } from "@nuxtjs/composition-api";
 
 export default defineComponent({
   props: ["magazalar"],
-  setup() {
+  setup(props) {
+    console.log(props);
     return {};
   },
 });

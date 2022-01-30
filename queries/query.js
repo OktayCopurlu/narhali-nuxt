@@ -1,19 +1,19 @@
 import { gql } from "graphql-tag";
 
-export const GET_ALL_CARPET = gql`
+export const GET_ALL_CARPETS = gql`
   query {
-    haliCollection {
+    halilarCollection {
       items {
         baslik
-        description
-        sys {
-          id
-        }
+        aciklama
         slug
         resimlerCollection {
           items {
             url
           }
+        }
+        sys {
+          id
         }
       }
     }
@@ -31,13 +31,89 @@ export const GET_ALL_IMAGES_ID = gql`
     }
   }
 `;
-export const GET_ALL_MAGAZA = gql`
+
+export const GET_ALL_MAGAZALAR = gql`
   query {
-    magazaCollection {
+    magazalarimizCollection {
       items {
         baslik
-
         slug
+        resimlerCollection {
+          items {
+            url
+          }
+        }
+      }
+    }
+  }
+`;
+export const GET_ALL_PERDE = gql`
+  query {
+    perdelerCollection {
+      items {
+        baslik
+        slug
+        resimlerCollection {
+          items {
+            url
+          }
+        }
+      }
+    }
+  }
+`;
+export const GET_ALL_KAYMAZ_HALI = gql`
+  query {
+    kaymazHalilarCollection {
+      items {
+        baslik
+        slug
+        resimlerCollection {
+          items {
+            url
+          }
+        }
+      }
+    }
+  }
+`;
+export const GET_ALL_EV_DEKORASYON = gql`
+  query {
+    evDekorasyonCollection {
+      items {
+        baslik
+        slug
+        resimlerCollection {
+          items {
+            url
+          }
+        }
+      }
+    }
+  }
+`;
+export const GET_ALL_YATAK = gql`
+  query {
+    yataklarCollection {
+      items {
+        baslik
+        slug
+        resimlerCollection {
+          items {
+            url
+          }
+        }
+      }
+    }
+  }
+`;
+export const GET_HAKKIMIZDA = gql`
+  query {
+    hakkimizdaCollection {
+      items {
+        baslik
+        slug
+        aciklama
         resimlerCollection {
           items {
             url

@@ -1,14 +1,18 @@
 <template>
-  <UrunLink :urun="hali" />
+  <div>
+    <h1>{{ hakkimizda.baslik }}</h1>
+    <p>{{ hakkimizda.aciklama }}</p>
+  </div>
 </template>
 <script lang="ts">
 import { defineComponent } from "@nuxtjs/composition-api";
 export default defineComponent({
-  props: ["hali"],
+  props: ["hakkimizda"],
   setup() {
     return {};
   },
 });
 </script>
 <style lang="scss" scoped>
-</style>v
+@import "~/static/main";
+</style>

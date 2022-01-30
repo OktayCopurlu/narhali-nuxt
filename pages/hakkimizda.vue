@@ -1,20 +1,18 @@
 <template>
   <div>
     <ul>
-      <UrunLink v-for="urun in data" :key="urun.slug" :urun="urun" />
+      <Hakkimizda :hakkimizda="data" />
     </ul>
   </div>
 </template>
 
 <script lang="ts">
-import { GET_ALL_CARPETS } from "~/queries/query.js";
+import { GET_HAKKIMIZDA } from "~/queries/query.js";
 import { useContents } from "~/queries/queryOperations";
-import { state } from "~/store/index";
 export default {
-  async asyncData({ app, route }) {
-    state.page = route.name;
-    const result = await useContents(app, GET_ALL_CARPETS);
-    const data = result.halilarCollection.items;
+  async asyncData({ app }) {
+    const result = await useContents(app, GET_HAKKIMIZDA);
+    const data = result.hakkimizdaCollection.items[0];
     return { data };
   },
 
