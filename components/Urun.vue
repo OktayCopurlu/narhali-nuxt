@@ -52,9 +52,7 @@
 import { defineComponent } from "@nuxtjs/composition-api";
 export default defineComponent({
   props: ["urun"],
-  setup() {
-    return {};
-  },
+
 });
 </script>
 <style lang="scss" scoped>

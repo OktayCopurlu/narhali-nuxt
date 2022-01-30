@@ -1,15 +1,26 @@
 <template>
-  <Urun :urun="result" />
+  <Urun :urun="data" />
 </template>
-  <script lang="ts">
+<script lang="ts">
 import { useContent } from "~/queries/queryOperations";
 import { state } from "~/store/index";
 
 export default {
-  async asyncData({ params }) {
-    const pageRoute = params.slug;
+  async asyncData({ params }: { params: any }) {
+    const pageRoute = params.slug as string;
     const result = await useContent(state.page, pageRoute);
-    return { result };
+    const data: {
+      baslik: string;
+      adres: string;
+      resimler: [any];
+      slug: string;
+    } = result as {
+      baslik: string;
+      adres: string;
+      resimler: [any];
+      slug: string;
+    };
+    return { data };
   },
   head: {
     title: "title",

@@ -6,15 +6,21 @@
   </div>
 </template>
 
-    <script lang="ts">
+<script lang="ts">
 import { GET_ALL_EV_DEKORASYON } from "~/queries/query.js";
 import { useContents } from "~/queries/queryOperations";
 import { state } from "~/store/index";
 export default {
-  async asyncData({ app, route }) {
-    state.page = route.name;
+  async asyncData({ app, route }: { app: any; route: any }) {
+    state.page = route.name as string;
     const result = await useContents(app, GET_ALL_EV_DEKORASYON);
-    const data = result.evDekorasyonCollection.items;
+    const data: [
+      {
+        baslik: string;
+        resimlerCollection: { items: [{ url: string }] };
+        slug: string;
+      }
+    ] = result.evDekorasyonCollection.items;
     return { data };
   },
 

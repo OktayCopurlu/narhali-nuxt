@@ -4,26 +4,27 @@
     <Nuxt />
   </div>
 </template>
-  <script lang="ts">
+<script lang="ts">
 import {
   defineComponent,
   useFetch,
   ref,
   useContext,
+  Ref,
 } from "@nuxtjs/composition-api";
 import { client } from "~/plugins/contentful.js";
 import { GET_ALL_IMAGES_ID } from "~/queries/query.js";
 export default defineComponent({
   setup() {
-    const imageURL = ref();
-
+    const imageURL: Ref<string> = ref("");
     const context = useContext();
-
     const { fetch } = useFetch(async () => {
-      const grapClient = context.app?.apolloProvider.defaultClient;
-      const result = await grapClient.query({
-        query: GET_ALL_IMAGES_ID,
-      });
+      const grapClient: any = context.app?.apolloProvider.defaultClient;
+      const result: { data: { assetCollection: any } } = await grapClient.query(
+        {
+          query: GET_ALL_IMAGES_ID,
+        }
+      );
       const response = await client.getAsset(
         result.data.assetCollection.items[
           Math.floor(Math.random() * result.data.assetCollection.items.length)

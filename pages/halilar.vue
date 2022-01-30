@@ -6,15 +6,21 @@
   </div>
 </template>
 
-    <script lang="ts">
+<script lang="ts">
 import { GET_ALL_CARPETS } from "~/queries/query.js";
 import { useContents } from "~/queries/queryOperations";
 import { state } from "~/store/index";
 export default {
-  async asyncData({ app, route }) {
-    state.page = route.name;
+  async asyncData({ app, route }: { app: any; route: any }) {
+    state.page = route.name as string;
     const result = await useContents(app, GET_ALL_CARPETS);
-    const data = result.halilarCollection.items;
+    const data: [
+      {
+        baslik: string;
+        resimlerCollection: { items: [{ url: string }] };
+        slug: string;
+      }
+    ] = result.halilarCollection.items;
     return { data };
   },
 
@@ -32,5 +38,4 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "~/static/main";
-
 </style>

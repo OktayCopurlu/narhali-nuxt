@@ -10,18 +10,16 @@
   </v-app>
 </template>
 
-  <script lang="ts">
-import {  defineComponent, toRefs } from "@nuxtjs/composition-api";
+<script lang="ts">
+import { defineComponent } from "@nuxtjs/composition-api";
 export default defineComponent({
   props: ["error"],
 
-  setup(props) {
+  setup() {
     const name = "EmptyLayout";
     const layout = "empty";
     const pageNotFound = "404 Not Found";
     const otherError = "An error occurred";
-
-    console.log(props);
     return {
       name,
       layout,

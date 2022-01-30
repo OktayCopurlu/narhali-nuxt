@@ -1,11 +1,11 @@
 <template>
   <Magazalarimiz :magaza="result" />
 </template>
-    <script lang="ts">
+<script lang="ts">
 import { useContent } from "~/queries/queryOperations";
 export default {
-  async asyncData({ params }) {
-    const pageRoute = params.slug;
+  async asyncData({ params }: { params: any }) {
+    const pageRoute = params.slug as string;
     const result = await useContent("magazalarimiz", pageRoute);
     return { result };
   },
