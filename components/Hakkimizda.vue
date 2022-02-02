@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>{{ hakkimizda.baslik }}</h1>
-    <p>{{ hakkimizda.aciklama }}</p>
+    <p v-html="hakkimizda.aciklama.json"></p>
   </div>
 </template>
 <script lang="ts">

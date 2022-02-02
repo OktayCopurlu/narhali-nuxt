@@ -17,7 +17,6 @@ import { useContents } from "~/queries/queryOperations";
 import { state } from "~/store/index";
 export default {
   async asyncData({ app, route }: { app: any; route: any }) {
-    state.page = route.name as string;
     const result = await useContents(app, GET_ALL_YATAK);
     const urunler: [
       {

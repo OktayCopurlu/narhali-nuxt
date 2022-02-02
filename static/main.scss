@@ -1,46 +1,54 @@
 @import "https://pro.fontawesome.com/releases/v5.10.0/css/all.css";
+@import "./reset";
 $media-desktop: "only screen and (max-width : 1024px)";
 $media-tablet: "only screen and (max-width : 768px)";
 $media-mobile: "only screen and (max-width : 600px)";
 $media-mobile-sm: "only screen and (max-width : 480px)";
-$font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-
-nav > ul * {
-  font-family: $font-family;
+$font-family: "Segoe UI",
+Tahoma,
+Geneva,
+Verdana,
+sans-serif;
+nav>ul * {
+    font-family: $font-family;
 }
+
 .large-display-none {
-  display: none;
+    display: none;
 }
-@media #{$media-tablet} {
-  .large-display-none {
-    display: inline-block;
-  }
-}
-.urun-link-container {
-  margin: auto;
-  display: flex;
-  flex-wrap: wrap;
-  width: 90vw;
-  align-items: center;
-  justify-content: center;
 
-  @media #{$media-mobile} {
-    width: 95vw;
-    li {
-      width: 100%;
-      margin: 1rem 0;
-      img {
-        width: 100%;
-        height: auto;
-      }
+@media #{$media-tablet} {
+    .large-display-none {
+        display: inline-block;
     }
-  }
 }
+
+.urun-link-container {
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    width: 90vw;
+    align-items: center;
+    justify-content: center;
+    @media #{$media-mobile} {
+        width: 95vw;
+        li {
+            width: 100%;
+            margin: 1rem 0;
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
+}
+
 .light {
-  background-color: gray;
-  color: white;
+    background-color: gray;
+    color: white;
 }
+
 .dark {
-  background-color: white;
-  color: gray;
+    background-color: white;
+    color: gray;
 }

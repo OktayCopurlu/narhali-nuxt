@@ -9,6 +9,7 @@
         <nuxt-link :to="element.link"> {{ element.text }}</nuxt-link>
       </li>
     </ul>
+    <div class="background"></div>
   </nav>
 </template>
 
@@ -17,7 +18,11 @@ import { defineComponent, reactive, toRefs } from "@nuxtjs/composition-api";
 export default defineComponent({
   props: ["resim"],
   setup() {
-    const state = reactive({
+    const state: {
+      navbarPosition: null | string;
+      navList: { link: string; text: string }[];
+    } = reactive({
+      navbarPosition: null,
       navList: [
         {
           link: "/",
@@ -53,6 +58,14 @@ export default defineComponent({
         },
       ],
     });
+    if (process.client) {
+      window.onscroll = () => {
+        if (window.pageYOffset > 300) {
+          state.navbarPosition = "positionFixedTop";
+          console.log(state.navbarPosition);
+        }
+      };
+    }
     return { ...toRefs(state) };
   },
 });
@@ -60,7 +73,7 @@ export default defineComponent({
 <style lang="scss" scoped>
 @import "~/static/main";
 nav {
-  // background-image: url("https://picsum.photos/1920/1080?random");
+  position: relative;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -75,19 +88,16 @@ nav {
     cursor: pointer;
     padding: 1rem;
   }
-  // .background {
-  //   background-color: gray;
-  //   width: 100%;
-  //   opacity: 0.5;
-  //   height: 3rem;
-  //   position: absolute;
-  // }
+
   ul {
+    position: absolute;
     display: flex;
     justify-content: space-around;
     align-items: flex-end;
-    height: 23rem;
-
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    padding-top: 1rem;
     li {
       margin-bottom: 1rem;
       list-style: none;
@@ -110,7 +120,9 @@ nav {
       display: block;
       transform: translateX(-200px);
       transition: all 0.2s linear;
-      padding-left: 1rem;
+      padding: 0 1rem 0 1rem;
+      width: auto;
+
       li {
         margin-top: 0.3rem;
         list-style: none;

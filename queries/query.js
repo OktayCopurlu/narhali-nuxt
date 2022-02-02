@@ -1,6 +1,6 @@
 import { gql } from "graphql-tag";
 
-export const GET_ALL_CARPETS = gql`
+export const GET_ALL_CARPETS = gql `
   query {
     halilarCollection {
       items {
@@ -20,7 +20,7 @@ export const GET_ALL_CARPETS = gql`
   }
 `;
 
-export const GET_ALL_IMAGES_ID = gql`
+export const GET_ALL_IMAGES_ID = gql `
   query {
     assetCollection {
       items {
@@ -32,7 +32,7 @@ export const GET_ALL_IMAGES_ID = gql`
   }
 `;
 
-export const GET_ALL_MAGAZALAR = gql`
+export const GET_ALL_MAGAZALAR = gql `
   query {
     magazalarimizCollection {
       items {
@@ -50,7 +50,7 @@ export const GET_ALL_MAGAZALAR = gql`
     }
   }
 `;
-export const GET_ALL_PERDE = gql`
+export const GET_ALL_PERDE = gql `
   query {
     perdelerCollection {
       items {
@@ -68,7 +68,7 @@ export const GET_ALL_PERDE = gql`
     }
   }
 `;
-export const GET_ALL_KAYMAZ_HALI = gql`
+export const GET_ALL_KAYMAZ_HALI = gql `
   query {
     kaymazHalilarCollection {
       items {
@@ -86,7 +86,7 @@ export const GET_ALL_KAYMAZ_HALI = gql`
     }
   }
 `;
-export const GET_ALL_EV_DEKORASYON = gql`
+export const GET_ALL_EV_DEKORASYON = gql `
   query {
     evDekorasyonCollection {
       items {
@@ -104,7 +104,7 @@ export const GET_ALL_EV_DEKORASYON = gql`
     }
   }
 `;
-export const GET_ALL_YATAK = gql`
+export const GET_ALL_YATAK = gql `
   query {
     yataklarCollection {
       items {
@@ -122,13 +122,15 @@ export const GET_ALL_YATAK = gql`
     }
   }
 `;
-export const GET_HAKKIMIZDA = gql`
+export const GET_HAKKIMIZDA = gql `
   query {
     hakkimizdaCollection {
       items {
         baslik
         slug
-        aciklama
+        aciklama {
+          json
+        }
         resimlerCollection {
           items {
             url

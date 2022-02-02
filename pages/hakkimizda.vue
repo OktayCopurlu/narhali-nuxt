@@ -23,12 +23,12 @@ export default {
   },
 
   head: {
-    title: "title",
+    title: "Nar Hali ve Perde Hakkimizda",
     meta: [
       {
         hid: "description",
-        name: "description",
-        content: "some page description",
+        name: "Hakkimizda",
+        content: "Adres : Narli Mah. Mithatpasa Cd. 238/a Narlidere Izmir",
       },
     ],
   },

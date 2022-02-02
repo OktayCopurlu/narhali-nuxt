@@ -14,7 +14,6 @@
 <script lang="ts">
 import { GET_ALL_EV_DEKORASYON } from "~/queries/query.js";
 import { useContents } from "~/queries/queryOperations";
-
 export default {
   async asyncData({ app }: { app: any }) {
     const result = await useContents(app, GET_ALL_EV_DEKORASYON);
@@ -25,16 +24,16 @@ export default {
         slug: string;
       }
     ] = result.evDekorasyonCollection.items;
-    return { data };
+    return {data}
   },
 
   head: {
-    title: "title",
+    title: "Nar Hali ve Perde | Ev Dekorasyonu",
     meta: [
       {
         hid: "description",
-        name: "description",
-        content: "some page description",
+        name: "Ev Dekorasyon Ürünleri ",
+        content: `En Sevilen Ev Dekorasyon Ürünleri, Post, Kilim ve Pelus Modelleri Nar Hali ve Perde’de!`,
       },
     ],
   },

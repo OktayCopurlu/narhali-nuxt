@@ -27,12 +27,12 @@ export default {
     return { data };
   },
   head: {
-    title: "title",
+    title: "Nar Hali ve Perde",
     meta: [
       {
         hid: "description",
-        name: "description",
-        content: "some page description",
+        name: "Home Page",
+             content: `En Sevilen Ev Dekorasyon Ürünleri, Hali, Kilim, Kaymaz Halilar, Post ve Pelus Modelleri Nar Hali ve Perde’de!`,
       },
     ],
   },
