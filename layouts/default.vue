@@ -1,7 +1,7 @@
 <template>
   <div class="main">
     <Navigation :resim="imageURL" />
-    <Nuxt />
+    <Nuxt style="padding-bottom: 3rem"/>
     <Footer/>
   </div>
 </template>
@@ -62,7 +62,6 @@ export default defineComponent({
   bottom: 0;
   left: 0;
   z-index: -1;
-  // background-image: url("https://picsum.photos/1920/1080?6");
   background-size: cover;
   background-position: center;
   opacity: 0.25; /*Value from 0.0 to 1.0*/

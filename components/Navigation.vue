@@ -1,15 +1,14 @@
 <template>
   <nav :style="`background-image: url(${resim})`">
-    <label class="large-display-none" for="bar"
+    <label class="large-display-none position-fixed-top" for="bar"
       ><i class="fas fa-bars"></i></label
     ><input type="checkbox" name="bar" id="bar" />
 
-    <ul>
+    <ul :class="navbarPosition">
       <li v-for="element in navList" :key="element.link">
         <nuxt-link :to="element.link"> {{ element.text }}</nuxt-link>
       </li>
     </ul>
-    <div class="background"></div>
   </nav>
 </template>
 
@@ -60,9 +59,10 @@ export default defineComponent({
     });
     if (process.client) {
       window.onscroll = () => {
-        if (window.pageYOffset > 300) {
-          state.navbarPosition = "positionFixedTop";
-          console.log(state.navbarPosition);
+        if (window.pageYOffset > 314) {
+          state.navbarPosition = "position-fixed-top";
+        } else {
+          state.navbarPosition = " ";
         }
       };
     }
@@ -84,9 +84,11 @@ nav {
   }
   label {
     font-size: 1.7rem;
-    color: white;
+    color: black;
     cursor: pointer;
-    padding: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: rgba(250, 250, 250, 0.5);
+    border-radius: 0 0 20%;
   }
 
   ul {
@@ -98,6 +100,7 @@ nav {
     background: rgba(0, 0, 0, 0.5);
     width: 100%;
     padding-top: 1rem;
+
     li {
       margin-bottom: 1rem;
       list-style: none;
@@ -106,14 +109,34 @@ nav {
         font-size: 1.8vw;
         color: white;
         text-decoration: none;
+        &::after {
+          display: block;
+          content: "";
+          width: 0;
+          height: 2px;
+          background-color: white;
+          transition: all 0.2s ease;
+        }
 
         &:hover {
           color: darken($color: white, $amount: 10);
-          text-decoration: underline;
           text-decoration-color: darken($color: white, $amount: 20);
+          &::after {
+            display: block;
+            content: "";
+            width: 100%;
+            height: 2px;
+            background-color: darken($color: white, $amount: 20);
+            transition: all 0.2s ease;
+          }
         }
       }
     }
+  }
+  .position-fixed-top {
+    position: fixed;
+    bottom: auto;
+    background: rgba(0, 0, 0, 0.7);
   }
   @media #{$media-tablet} {
     ul {
@@ -122,6 +145,10 @@ nav {
       transition: all 0.2s linear;
       padding: 0 1rem 0 1rem;
       width: auto;
+      position: fixed;
+      bottom: auto;
+      top: 3rem;
+      border-radius: 0 1rem 0 0;
 
       li {
         margin-top: 0.3rem;

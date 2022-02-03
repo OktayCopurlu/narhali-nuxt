@@ -1,6 +1,7 @@
 <template>
   <div class="urun-link-container">
     <Hakkimizda :hakkimizda="data" />
+
   </div>
 </template>
 
